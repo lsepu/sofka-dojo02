@@ -1,7 +1,7 @@
-package services;
+package com.example.demo.services;
 
 import com.example.demo.CsvUtilFile;
-import com.example.demo.Player;
+import com.example.demo.model.Player;
 import reactor.core.publisher.Flux;
 
 public class PlayerService {
