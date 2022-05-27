@@ -5,6 +5,7 @@ import com.opencsv.exceptions.CsvException;
 import org.junit.jupiter.api.Test;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import reactor.test.StepVerifier;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -19,10 +20,20 @@ public class CSVUtilTest {
 
     @Test
     void converterData(){
-        List<Player> list = CsvUtilFile.getPlayers();
-        assert list.size() == 18207;
+        Flux<Player> list = CsvUtilFile.getPlayers();
+        StepVerifier.create(list).expectNextCount(12807).thenConsumeWhile(x -> true).verifyComplete();
+        //assert list.size() == 18207;
     }
 
+
+    /*
+    @Test
+    void stream_filtrarJugadoresMayoresA35(){
+        Flux<Player> listOlderThan35 = CsvUtilFile.getPlayers().filter(player -> player.age >= 35);
+        StepVerifier.create(listOlderThan35).expectNextCount(322).thenConsumeWhile(x -> true).verifyComplete();
+    }*/
+
+    /*
     @Test
     void stream_filtrarJugadoresMayoresA35(){
         List<Player> list = CsvUtilFile.getPlayers();
@@ -62,7 +73,7 @@ public class CSVUtilTest {
 
         assert listFilter.block().size() == 322;
     }
-
+ */
 
 
 }
