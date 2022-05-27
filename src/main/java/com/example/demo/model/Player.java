@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+
+@Document(collection = "players")
 public class Player {
     public int id;
     public String name;
