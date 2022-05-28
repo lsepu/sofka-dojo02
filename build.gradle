@@ -14,12 +14,14 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb-reactive', version: '2.7.0'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'io.projectreactor:reactor-test'
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher:1.7.1")
 	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.7.1")
 	testRuntimeOnly("org.junit.vintage:junit-vintage-engine:5.7.1")
 	compile 'com.opencsv:opencsv:5.3'
+	compile 'org.mongodb:mongodb-driver-reactivestreams:4.6.0'
 }
 
 test {

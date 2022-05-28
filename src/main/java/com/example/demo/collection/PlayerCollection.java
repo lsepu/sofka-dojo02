@@ -1,6 +1,12 @@
-package com.example.demo;
+package com.example.demo.collection;
 
-public class Player {
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
+public class PlayerCollection {
+
+    @Id
     public int id;
     public String name;
     public int age;
@@ -10,11 +16,11 @@ public class Player {
     public int games;
     public String club;
 
-    public Player(){
+    public PlayerCollection(){
 
     }
 
-    public Player(int id, String name, int age, String icon, String national, int winners, int games, String club) {
+    public PlayerCollection(int id, String name, int age, String icon, String national, int winners, int games, String club) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -89,3 +95,4 @@ public class Player {
         this.club = club;
     }
 }
+
